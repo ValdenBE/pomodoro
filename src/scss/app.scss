@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+
+body {
+  background-color: #fefefe;
+  text-align: center;
+  .navbar {
+    background: rgb(53, 99, 143);
+    height: 50px;
+  }
+  h1 {
+    font-size: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -5px;
+    color: white;
+    font-family: 'Acme', sans-serif;
+  }
+}

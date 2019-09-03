@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rm -rf .cache && parcel index.html -p 3000"
+    "start": "rm -rf .cache && parcel index.html -p 3000",
+    "build": "rm -rf .cache && parcel build index.html --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/ValdenBE/pomodoro#readme",
   "dependencies": {
     "node-sass": "^4.12.0",
+    "parcel-bundler": "^1.12.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },

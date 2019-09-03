@@ -30700,7 +30700,7 @@ var Header = function Header() {
     "aria-label": "main navigation"
   }, _react.default.createElement("h1", {
     "class": "mainTitle"
-  }, "~ Pomodoro Timer By Valden  ~")));
+  }, "~ Pomodoro Timer By Valden ~")));
 };
 
 var _default = Header;
@@ -30717,146 +30717,10 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.timerStatus = -1; // timerStatus (-1 -> off; 1 -> on; 0 -> pause)
-
-window.timerTick = setInterval(calculateTimer, 1000);
-window.initialMinutes = 25;
-window.initialSeconds = 0;
-window.initialSecondsLeft = parseInt(window.initialMinutes) * 60 + parseInt(window.initialSeconds);
-window.timerSecondsLeft = window.initialSecondsLeft;
-var btnStart = document.querySelector('#start');
-var btnStop = document.querySelector('#stop');
-var btnReset = document.querySelector('#reset');
-var iconPause = document.querySelector('#icon-pause');
-var minutes = document.querySelector('#minutes');
-var seconds = document.querySelector('#seconds');
-var title = document.querySelector('.title');
-window.addEventListener('load', function () {
-  setInitialTimer();
-  setTimerSecondsLeft();
-});
-btnStart.addEventListener('click', function () {
-  btnStart.style.display = 'none';
-  btnStop.style.display = 'inline-block';
-  btnReset.style.display = 'inline-block';
-  window.timerStatus = 1;
-});
-btnStop.addEventListener('click', function () {
-  if (window.timerStatus === 1) {
-    iconPause.classList.remove('fa-pause-circle');
-    iconPause.classList.add('fa-play-circle');
-    window.timerStatus = 0;
-  } else if (window.timerStatus === 0) {
-    iconPause.classList.remove('fa-play-circle');
-    iconPause.classList.add('fa-pause-circle');
-    window.timerStatus = 1;
-  }
-});
-btnReset.addEventListener('click', function () {
-  window.timerStatus = -1;
-  btnStart.style.display = 'inline-block';
-  btnStop.style.display = 'none';
-  btnReset.style.display = 'none';
-  iconPause.classList.remove('fa-play-circle');
-  iconPause.classList.add('fa-pause-circle');
-  title.innerText = 'Let the countdown begin!!';
-  setInitialTimer();
-  setTimerSecondsLeft();
-});
-/**
- * Set initial timer
- */
-
-function setInitialTimer() {
-  minutes.innerText = window.initialMinutes >= 10 ? window.initialMinutes : '0' + window.initialMinutes;
-  seconds.innerText = window.initialSeconds >= 10 ? window.initialSeconds : '0' + window.initialSeconds;
-}
-/**
- * Set timer seconds left
- */
-
-
-function setTimerSecondsLeft() {
-  window.timerSecondsLeft = parseInt(minutes.innerText) * 60 + parseInt(seconds.innerText);
-}
-/**
- * Count down seconds
- */
-
-
-function calculateTimer() {
-  if (window.timerStatus === 1) {
-    window.timerSecondsLeft--;
-    upateTitle();
-  }
-
-  if (window.timerSecondsLeft >= 0) {
-    minutes.innerText = Math.floor(window.timerSecondsLeft / 60) >= 10 ? Math.floor(window.timerSecondsLeft / 60) : '0' + Math.floor(window.timerSecondsLeft / 60);
-    seconds.innerText = Math.floor(window.timerSecondsLeft % 60) >= 10 ? Math.floor(window.timerSecondsLeft % 60) : '0' + Math.floor(window.timerSecondsLeft % 60);
-  }
-}
-/**
- * Update timer title
- */
-
-
-function upateTitle() {
-  if (window.timerSecondsLeft < window.initialSecondsLeft) {
-    title.innerText = 'Yeah...! Countdown has begun...';
-  }
-
-  if (window.timerSecondsLeft < window.initialSecondsLeft - 60) {
-    title.innerHTML = 'Wooohoo, one minute gone..';
-  }
-
-  if (window.timerSecondsLeft < window.initialSecondsLeft - 60 * 2) {
-    title.innerHTML = 'Wooohoo, countless minutes gone..';
-  }
-
-  if (window.timerSecondsLeft < window.initialSecondsLeft - 60 * 3) {
-    title.innerHTML = 'Wooohoo, countless minutes gone..';
-  }
-}
-
 var Pomo = function Pomo() {
   return _react.default.createElement("div", {
     "class": "Pomo"
-  }, _react.default.createElement("section", {
-    id: "app",
-    "class": "hero is-info is-fullheight is-bold"
-  }, _react.default.createElement("div", {
-    "class": "hero-body"
-  }, _react.default.createElement("div", {
-    "class": "container has-text-centered"
-  }, _react.default.createElement("h2", {
-    "class": "title is-6"
-  }, "Let the countdown begin!!"), _react.default.createElement("div", {
-    id: "timer"
-  }, _react.default.createElement("span", {
-    id: "minutes"
-  }), _react.default.createElement("span", {
-    id: "middle"
-  }, ":"), _react.default.createElement("span", {
-    id: "seconds"
-  })), _react.default.createElement("div", {
-    id: "buttons"
-  }, _react.default.createElement("button", {
-    id: "start",
-    "class": "button is-dark is-large"
-  }, _react.default.createElement("i", {
-    "class": "far fa-play-circle"
-  })), _react.default.createElement("button", {
-    id: "stop",
-    "class": "button is-dark is-large"
-  }, _react.default.createElement("i", {
-    id: "icon-pause",
-    "class": "far fa-pause-circle"
-  })), _react.default.createElement("button", {
-    id: "reset",
-    "class": "button is-dark is-large"
-  }, _react.default.createElement("i", {
-    "class": "fas fa-undo"
-  })))))));
+  });
 };
 
 var _default = Pomo;
@@ -30894,30 +30758,30 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var HelloMessage =
+var Pomodoro =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(HelloMessage, _React$Component);
+  _inherits(Pomodoro, _React$Component);
 
-  function HelloMessage() {
-    _classCallCheck(this, HelloMessage);
+  function Pomodoro() {
+    _classCallCheck(this, Pomodoro);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(HelloMessage).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Pomodoro).apply(this, arguments));
   }
 
-  _createClass(HelloMessage, [{
+  _createClass(Pomodoro, [{
     key: "render",
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Pomo.default, null));
     }
   }]);
 
-  return HelloMessage;
+  return Pomodoro;
 }(_react.default.Component);
 
 var App = document.getElementById("app");
 
-_reactDom.default.render(_react.default.createElement(HelloMessage, {
+_reactDom.default.render(_react.default.createElement(Pomodoro, {
   name: ""
 }), App);
 },{"./scss/app.scss":"src/scss/app.scss","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Pomo":"src/components/Pomo.js"}],"../../.nvm/versions/node/v12.9.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -30948,7 +30812,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65318" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50803" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

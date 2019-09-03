@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Header from './components/Header'
 import Pomo from './components/Pomo'
 
-class HelloMessage extends React.Component {
+class Pomodoro extends React.Component {
     render() {
         return <div>
             <Header/>
@@ -15,4 +15,4 @@ class HelloMessage extends React.Component {
 
 let App = document.getElementById("app");
 
-ReactDOM.render(<HelloMessage name="" />, App);
+ReactDOM.render(<Pomodoro name="" />, App);

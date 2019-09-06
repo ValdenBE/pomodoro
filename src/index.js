@@ -1,18 +1,19 @@
-import './scss/app.scss'
+import "./scss/app.scss";
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from './components/Header'
-import Pomo from './components/Pomo'
+import Header from "./components/header";
+import Pomo from "./components/pomodoro";
 
 class Pomodoro extends React.Component {
     render() {
-        return <div>
-            <Header/>
-            <Pomo/>
-        </div>
+        return (
+            <div>
+                <Header />
+                <Pomo />
+            </div> 
+        );
     }
 }
 
-let App = document.getElementById("app");
-
-ReactDOM.render(<Pomodoro name="" />, App);
+const App = document.querySelector("#app");
+ReactDOM.render(<Pomodoro name={""} />, App);

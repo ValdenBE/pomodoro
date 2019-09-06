@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../.nvm/versions/node/v12.9.1/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -149,7 +149,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../.nvm/versions/node/v12.9.1/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -184,12 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../.nvm/versions/node/v12.9.1/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/app.scss":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/app.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../.nvm/versions/node/v12.9.1/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/object-assign/index.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/object-assign/index.js":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -30681,7 +30681,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/Header.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30699,13 +30699,32 @@ var Header = function Header() {
     role: "navigation",
     "aria-label": "main navigation"
   }, _react.default.createElement("h1", {
-    "class": "mainTitle"
+    className: "mainTitle"
   }, "~ Pomodoro Timer By Valden ~")));
 };
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/Pomo.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/buttons.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Buttons;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Buttons(props) {
+  return _react.default.createElement("button", {
+    className: props.className,
+    type: "button",
+    onClick: props.handleButton
+  }, props.value);
+}
+},{"react":"node_modules/react/index.js"}],"src/components/pomodoro.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30713,19 +30732,176 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
+
+var _buttons = _interopRequireDefault(require("./buttons"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Pomo = function Pomo() {
-  return _react.default.createElement("div", {
-    "class": "Pomo"
-  });
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var format = function format(time) {
+  return [Math.floor(time / 60), time % 60];
 };
 
-var _default = Pomo;
-exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/index.js":[function(require,module,exports) {
+var pomodoro =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(pomodoro, _Component);
+
+  function pomodoro(props) {
+    var _this;
+
+    _classCallCheck(this, pomodoro);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(pomodoro).call(this, props));
+    _this.onStart = _this.onStart.bind(_assertThisInitialized(_this));
+    _this.onPause = _this.onPause.bind(_assertThisInitialized(_this));
+    _this.onReset = _this.onReset.bind(_assertThisInitialized(_this));
+    _this.onIncrease = _this.onIncrease.bind(_assertThisInitialized(_this));
+    _this.onDecrease = _this.onDecrease.bind(_assertThisInitialized(_this));
+    _this.state = {
+      clock: false,
+      time: 60 * 25
+    };
+    return _this;
+  }
+
+  _createClass(pomodoro, [{
+    key: "onStart",
+    value: function onStart() {
+      var _this2 = this;
+
+      this.setState({
+        clock: true
+      });
+      this.setInterval = setInterval(function () {
+        if (_this2.state.time <= 0) {
+          clearInterval(_this2.setInterval);
+        } else {
+          _this2.setState(function (prevState) {
+            return {
+              time: --prevState.time
+            };
+          });
+        }
+      }, 1000);
+    }
+  }, {
+    key: "onPause",
+    value: function onPause() {
+      this.setState({
+        clock: false
+      });
+      clearInterval(this.setInterval);
+    }
+  }, {
+    key: "onReset",
+    value: function onReset() {
+      this.setState({
+        clock: false
+      });
+      this.setState(function () {
+        return {
+          time: 25 * 60
+        };
+      });
+      clearInterval(this.setInterval);
+    }
+  }, {
+    key: "onIncrease",
+    value: function onIncrease() {
+      if (!this.state.clock) {
+        this.setState(function (prevState) {
+          return {
+            time: prevState.time + 60
+          };
+        });
+      }
+    }
+  }, {
+    key: "onDecrease",
+    value: function onDecrease() {
+      if (!this.state.clock) {
+        if (this.state.time - 60 < 0) {
+          this.setState(function () {
+            return {
+              time: 0
+            };
+          });
+        } else {
+          this.setState(function (prevState) {
+            return {
+              time: prevState.time - 60
+            };
+          });
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var start = !this.state.clock ? _react.default.createElement(_buttons.default, {
+        handleButton: this.onStart,
+        value: "START",
+        className: "button is-large is-success is-rounded is-start"
+      }) : null;
+      var pause = this.state.clock ? _react.default.createElement(_buttons.default, {
+        handleButton: this.onPause,
+        value: "PAUSE",
+        className: "button is-large is-success is-rounded is-start"
+      }) : null;
+      return _react.default.createElement("div", {
+        className: "container"
+      }, _react.default.createElement("p", {
+        id: "timer"
+      }, _react.default.createElement("span", null), _react.default.createElement("span", {
+        id: "timer-mins"
+      }, "".concat(format(this.state.time)[0])), _react.default.createElement("span", {
+        className: "label"
+      }, "MIN(S)"), _react.default.createElement("span", {
+        id: "timer-secs"
+      }, "".concat(format(this.state.time)[1])), _react.default.createElement("span", {
+        className: "label"
+      }, "SEC(S)"), _react.default.createElement(_buttons.default, {
+        handleButton: this.onIncrease,
+        value: "+",
+        className: "button is-medium is-link is-rounded incDec"
+      }), start, pause, _react.default.createElement(_buttons.default, {
+        handleButton: this.onReset,
+        value: "RESET",
+        className: "button is-large is-warning is-rounded is-reset"
+      }), _react.default.createElement(_buttons.default, {
+        handleButton: this.onDecrease,
+        value: "-",
+        className: "button is-medium is-link is-rounded incDec"
+      })));
+    }
+  }]);
+
+  return pomodoro;
+}(_react.Component);
+
+exports.default = pomodoro;
+},{"react":"node_modules/react/index.js","./buttons":"src/components/buttons.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 require("./scss/app.scss");
@@ -30734,9 +30910,9 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _Header = _interopRequireDefault(require("./components/Header"));
+var _header = _interopRequireDefault(require("./components/header"));
 
-var _Pomo = _interopRequireDefault(require("./components/Pomo"));
+var _pomodoro = _interopRequireDefault(require("./components/pomodoro"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30772,19 +30948,19 @@ function (_React$Component) {
   _createClass(Pomodoro, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Pomo.default, null));
+      return _react.default.createElement("div", null, _react.default.createElement(_header.default, null), _react.default.createElement(_pomodoro.default, null));
     }
   }]);
 
   return Pomodoro;
 }(_react.default.Component);
 
-var App = document.getElementById("app");
+var App = document.querySelector("#app");
 
 _reactDom.default.render(_react.default.createElement(Pomodoro, {
   name: ""
 }), App);
-},{"./scss/app.scss":"src/scss/app.scss","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Pomo":"src/components/Pomo.js"}],"../../.nvm/versions/node/v12.9.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./scss/app.scss":"src/scss/app.scss","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/header":"src/components/header.js","./components/pomodoro":"src/components/pomodoro.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -30812,7 +30988,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50803" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52295" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -30987,5 +31163,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../.nvm/versions/node/v12.9.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.a2b27638.js.map

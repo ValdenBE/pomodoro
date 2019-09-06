@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import Buttons from "./buttons";
 
-const format = time => {
-    return [Math.floor(time / 60), time % 60];
-};
+const format = time => [Math.floor(time / 60), time % 60];
 export default class pomodoro extends Component {
     constructor(props) {
         super(props);
@@ -84,7 +82,9 @@ export default class pomodoro extends Component {
                     <Buttons
                         handleButton={this.onIncrease}
                         value={"+"}
-                        className={"button is-medium is-link is-rounded incDec"}
+                        className={
+                            "button is-medium is-link is-rounded is-inverted incDec increase "
+                        }
                     />
                     {start}
                     {pause}
@@ -98,7 +98,9 @@ export default class pomodoro extends Component {
                     <Buttons
                         handleButton={this.onDecrease}
                         value={"-"}
-                        className={"button is-medium is-link is-rounded incDec"}
+                        className={
+                            "button is-medium is-link is-rounded is-inverted incDec decrease"
+                        }
                     />
                 </p>
             </div>

@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/object-assign/index.js":[function(require,module,exports) {
+},{"/home/valden/Projets/pomodoro/src/img/background.jpg":[["background.66bde022.jpg","src/img/background.jpg"],"src/img/background.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/object-assign/index.js":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -30884,7 +30884,7 @@ function (_Component) {
       }, "SEC(S)"), _react.default.createElement(_buttons.default, {
         handleButton: this.onIncrease,
         value: "+",
-        className: "button is-medium is-link is-rounded incDec"
+        className: "button is-medium is-link is-rounded is-inverted incDec increase "
       }), start, pause, _react.default.createElement(_buttons.default, {
         handleButton: this.onReset,
         value: "RESET",
@@ -30892,7 +30892,7 @@ function (_Component) {
       }), _react.default.createElement(_buttons.default, {
         handleButton: this.onDecrease,
         value: "-",
-        className: "button is-medium is-link is-rounded incDec"
+        className: "button is-medium is-link is-rounded is-inverted incDec decrease"
       })));
     }
   }]);
@@ -30988,7 +30988,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52295" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55665" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

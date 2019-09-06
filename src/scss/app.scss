@@ -1,38 +1,59 @@
 @import url("https://fonts.googleapis.com/css?family=Acme&display=swap");
 
 body {
-  background-color: #fefefe;
-  text-align: center;
-  .navbar {
-    background: #3273dc;
-    height: 50px;
-  }
-  h1 {
-    font-size: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -5px;
-    color: white;
-    font-family: "Acme", sans-serif;
-  }
+    background: url("/src/img/background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    text-align: center;
+    .navbar {
+        background: #3273dc;
+        height: 50px;
+    }
+    h1 {
+        font-size: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -5px;
+        color: white;
+        font-family: "Acme", sans-serif;
+    }
 }
 .container {
-  margin-top: -65px;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    margin-top: -65px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #timer {
-  color: #3273dc;
-  font-size: 4rem;
+    color: white;
+    font-weight: bold;
+    font-size: 4rem;
 }
 .label {
-  font-size: 2.5rem;
-  padding-left: 0.25rem;
+    font-size: 2.5rem;
+    padding-left: 0.25rem;
 }
 
-.button{
-  margin : 20px
+.button {
+    margin: 20px;
+    font-weight: bold;
+}
+
+.increase,
+.decrease {
+    bottom: 168px;
+}
+.increase {
+    left: 38px;
+}
+.decrease {
+    right: 38px;
+}
+.is-start,
+.is-reset {
+    bottom: 10px;
 }

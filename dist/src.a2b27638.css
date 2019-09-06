@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Acme&display=swap");
 body {
-  background-color: #fefefe;
+  background: url("/background.66bde022.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
   text-align: center; }
   body .navbar {
     background: #3273dc;
@@ -22,7 +26,8 @@ body {
   align-items: center; }
 
 #timer {
-  color: #3273dc;
+  color: white;
+  font-weight: bold;
   font-size: 4rem; }
 
 .label {
@@ -30,7 +35,22 @@ body {
   padding-left: 0.25rem; }
 
 .button {
-  margin: 20px; }
+  margin: 20px;
+  font-weight: bold; }
+
+.increase,
+.decrease {
+  bottom: 168px; }
+
+.increase {
+  left: 38px; }
+
+.decrease {
+  right: 38px; }
+
+.is-start,
+.is-reset {
+  bottom: 10px; }
 
 
 /*# sourceMappingURL=/src.a2b27638.css.map */
